@@ -37,7 +37,6 @@ public class App {
         while (pessoas.numel() > 1) {
             
             // A fórmula (indiceAtual + M - 1) % tamanho_atual calcula a próxima posição de forma circular
-           
             indiceAtual = (indiceAtual + M - 1) % pessoas.numel();
             
             pessoas.remover(indiceAtual);
