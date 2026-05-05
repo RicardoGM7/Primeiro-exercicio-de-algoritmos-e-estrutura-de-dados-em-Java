@@ -25,13 +25,26 @@ public class App {
         System.out.println("Vencedor = " + pessoaAtual.valor);
         }
         
-     public void arrayJosephus(int M,int N) {
-        int[] lista = new int[N];
-        int[] lista2 = new int[N];
-        for(int i = 0; i < N; i++){
-            lista[i] = i;
-            lista2[i] = i + 1;}
+     public static int arrayJosephus(int M, int N) {
+       ArrayDinamico pessoas = new ArrayDinamico(N);
+        
+        for (int i = 0; i < N; i++) {
+            pessoas.adicionar(i + 1, i);
         }
+
+        int indiceAtual = 0;
+
+        while (pessoas.numel() > 1) {
+            
+            // A fórmula (indiceAtual + M - 1) % tamanho_atual calcula a próxima posição de forma circular
+           
+            indiceAtual = (indiceAtual + M - 1) % pessoas.numel();
+            
+            pessoas.remover(indiceAtual);
+        }
+
+        return pessoas.get(0);
+    }
     
 
 
